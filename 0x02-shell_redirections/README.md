@@ -6,4 +6,5 @@
 	<li><b>3-twofiles</b>: This script displays the contens of f"/etc/passwd/" and "/etc/hosts".</li>
 	<li><b>4-lastlines</b>: This script displays the last ten lines of the file "/etc/passwd"</li>
 	<li><b>5-firstlines</b>: This script displays the first 10 lines of the file "/etc/passwd".</li>
+	<li><b>6-thrid_line</b>: This script displays the thrid line of the file "iacta"</li>
 </ul>
