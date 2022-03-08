@@ -11,4 +11,5 @@
 	<li><b>8-cwd_state</b>: This script writes into the file ls_cwd_content the result of the command ls -la.</li>
 	<li><b>9-duplicate_last_line</b>:  This script duplicates the last line of the file "Iacta"</li>
 	<li><b>10-no_more_js</b>: This script deletes all the files with the extensionnn ".js" in the current directory and all its subfolders.</li>
+	<li><b>11-directories</b>: This script counts the number of directories and sub-directories in the current directories</li>
 </ul>
