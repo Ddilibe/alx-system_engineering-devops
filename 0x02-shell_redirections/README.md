@@ -8,4 +8,5 @@
 	<li><b>5-firstlines</b>: This script displays the first 10 lines of the file "/etc/passwd".</li>
 	<li><b>6-thrid_line</b>: This script displays the thrid line of the file "iacta"</li>
 	<li><b>7-file</b>: This script uses the echo command to give an input to a file with a weird name</li>
+	<li><b>8-cwd_state</b>: This script writes into the file ls_cwd_content the result of the command ls -la.</li>
 </ul>
