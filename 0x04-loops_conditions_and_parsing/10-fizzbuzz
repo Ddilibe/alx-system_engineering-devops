@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# This script displays from number 1 to 100
+count=1
+while ((count<=100)); do
+three=count%3
+five=count%5
+if ((three==0 && five==0)); then
+echo "FizzBuzz"
+elif ((three==0)); then
+echo "Fizz"
+elif ((five==0)); then
+echo "Buzz"
+else
+echo $count
+fi
+((count++))
+done

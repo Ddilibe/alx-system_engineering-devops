@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# This script that loops from 1 to 10 and create some exceptions
+count=9
+while ((count >= 0)); do
+	if ((count==2)); then
+		echo "good luck"
+	elif (( count==6 )); then
+		echo "bad luck"
+	else
+		echo "Best School"
+	fi
+	((count--))
+done
