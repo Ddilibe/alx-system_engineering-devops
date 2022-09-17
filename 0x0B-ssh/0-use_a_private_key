@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Script for connecting using the private key
+
+ssh -i ~/.ssh/school ubuntu@3.238.118.13
