@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Script for installing Nginx and changing the contents of the landing page
+
+apt-get -y update
+apt-get -y install nginx
+echo "Hello World!" > /var/www/html/index.html
+service nginx start
