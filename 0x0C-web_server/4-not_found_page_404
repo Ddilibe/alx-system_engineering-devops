@@ -4,5 +4,10 @@
 apt-get -y update
 apt-get -y install nginx
 echo "Hello World!" > /var/www/html/index.html
-sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/Ddilibe permanent;\n\n\terror_page 404 \/custom_404.html;\n\tlocation =\/custom_404.html {\n\t\troot \/usr\/share\/nginx\/html;\n\t\tinternal;\n\t}/" /etc/nginx/sites-available/default
+touch ~/var/www/html/error-page.html
+echo "Ceci n'est pas une page" > ~/var/www/html/error-page.html
+touch ~/etc/nginx/snippets/error-page.conf
+sed -i "s//error_page 404 \/error-page.html;\nlocation=\/error-page.html{\n\t root \/var\/www\/html;\n\tinternal;\n}\n/" /etc/nginx/snippeys/error-page.conf
+sed -i "s/\tlisten [::]:80 default_server;/\tlisten [::]:80 default_server;\n\tinclude snippets\/error-page.conf;\n/" /etc/ngnix/sites-avaliable/default
+sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/Ddilibe permanent;}/" /etc/nginx/sites-available/default
 service nginx start
