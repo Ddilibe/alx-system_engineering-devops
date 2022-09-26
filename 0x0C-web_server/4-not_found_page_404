@@ -8,6 +8,6 @@ touch /var/www/html/error-page.html
 echo "Ceci n'est pas une page" > /var/www/html/error-page.html
 touch /etc/nginx/snippets/error-page.conf
 sed -i "s//error_page 404 \/error-page.html;\nlocation=\/error-page.html{\n\t root \/var\/www\/html;\n\tinternal;\n}\n/" /etc/nginx/snippets/error-page.conf
-sed -i "s/\tlisten [::]:80 default_server;/\tlisten [::]:80 default_server;\n\tinclude snippets\/error-page.conf;\n/" /etc/nginx/sites-avaliable/default
+sed -i "s/\tlisten [::]:80 default_server;/\tlisten [::]:80 default_server;\n\tinclude snippets\/error-page.conf;\n/" /etc/nginx/sites-enabled/default
 sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/Ddilibe permanent;}/" /etc/nginx/sites-available/default
 service nginx start
