@@ -1,7 +1,20 @@
 #!/usr/bin/env bash
-# Adding a custom Nginx response header
+# Script for installing Nginx and changing the contents of the landing page
 
-apt-get update
-apt-get install nginx
-sed -i "s/location \/ {\n/location \/ {\n\t\tadd_header X-Served-By \"$HOSTNAME\"\n/" /etc/nginx/sites-available/default
-service nginx restart
+# Command to update all the application on the server
+apt-get -y update
+
+# COmmand to install the web server
+apt-get -y install nginx
+
+# Command to update the index file
+echo "Hello World!" > /var/www/html/index.html
+
+# Command to update the custom 404 error page
+echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
+
+# Command to configure a permanent redirection on the server
+sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/Ddilibe permanent;}/" /etc/nginx/sites-enabled/default
+
+# Command to restart the nginx
+service nginx start
