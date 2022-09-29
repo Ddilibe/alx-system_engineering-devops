@@ -17,7 +17,7 @@ echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
 sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/Ddilibe permanent;/" /etc/nginx/sites-enabled/default
 
 # Command for adding to the header of the file
-sed -i "s/location \/ {\n/location \/ {\n\t\tadd_header X-Served-By \"$HOSTNAME\";\n/" /etc/nginx/sites-enabled/default
+sed -i "s/location \/ {/location \/ {\n\t\tadd_header X-Served-By \"$HOSTNAME\";\n/" /etc/nginx/sites-enabled/default
 
 # Command to restart the nginx
 service nginx restart
