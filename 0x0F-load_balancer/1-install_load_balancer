@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Script to install and configure HAproxy on a server
+
+# Command for updating the system
+sudo apt-get update
+
+# Command for install haproxy
+sudo apt-get -y haproxy
+
+# Command to display the verison of the haproxy
+echo "HAproxy Version"
+sudo haproxy -v
+
+# Command to convert a HAprocy to a load balancer
+sudo cp -a /etc/haproxy/haproxy.cfg{,.orig}
+
+# Command for adding the backend and frontend part of the server
+echo "frontend haproxy-main\n\tbind *:80\n\toption forwardfor\n\tdefault_backend nginx_webserver\n" >> /etc/haproxy/haproxy.cfg
+
+# Command for appending the backend section os the configuration
+echo "backend nginx_webserver\n\tbalance roundrobin\n\tserver webserver1\t3.238.118.13 check\n\tserver webserver2\t3.236.13.154 check\n" >> /etc/haproxy/haproxy.cfg
+
+# Command to restart haprovy
+sudo service haproxy restart
