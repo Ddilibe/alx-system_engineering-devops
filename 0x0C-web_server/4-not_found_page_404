@@ -2,8 +2,13 @@
 # Script for installing Nginx and changing the contents of the landing page
 
 apt-get -y update
+
 apt-get -y install nginx
+
 echo "Hello World!" > /var/www/html/index.html
+
 echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
+
 sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/Ddilibe permanent;}/" /etc/nginx/sites-available/default
+
 service nginx start
