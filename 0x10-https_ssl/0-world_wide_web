@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Bash script that displays information about subdomains
+
+
+answer () {
+	dab=$(dig "$2.$1" | grep -A1 "ANSWER SECTION:")
+	b=$(echo "$dab" | awk ' FNR == 2 { print }' | awk '{ print $4 }')
+	c=$(echo "$dab" | awk ' FNR == 2 { print }' | awk '{ print $5 }')
+	echo "The subdomain $2 is a $b record and points to $c"
+}
+
+if [ "$2" ]
+then
+	answer "$1" "$2"
+else
+	answer "$1" www
+	answer "$1" lb-01
+	answer "$1" web-01
+	answer "$1" web-02
+fi
+
+exit 0
