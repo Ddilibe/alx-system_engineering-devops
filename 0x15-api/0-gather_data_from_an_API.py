@@ -6,13 +6,13 @@ if __name__ == '__main__':
     import requests
     import sys
     TOTAL_NUMBER_OF_TASKS, NUMBER_OF_DONE_TASKS, new_dict = 0, 0, {}
-    name = requests.get('https://jsonplaceholder.typicode.com/users/{}/'\
-            .format(sys.argv[1]))
-    info = requests.get('https://jsonplaceholder.typicode.com/users/{}/todos'\
-            .format(sys.argv[1]))
+    name = requests.get('https://jsonplaceholder.typicode.com/user\
+                        s/{}'.format(sys.argv[1]))
+    info = requests.get('https://jsonplaceholder.typicode.com/users/{}\
+                        /todos'.format(sys.argv[1]))
     EMPLOYEE_NAME = name.json().get("name")
     for i in info.json():
-        if i.get("completed") == True:
+        if i.get("completed"):
             NUMBER_OF_DONE_TASKS += 1
             new_dict[NUMBER_OF_DONE_TASKS] = i.get('title')
         TOTAL_NUMBER_OF_TASKS += 1
