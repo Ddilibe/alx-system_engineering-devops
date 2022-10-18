@@ -11,7 +11,7 @@ if __name__ == '__main__':
     TOTAL_NUMBER_OF_TASKS, NUMBER_OF_DONE_TASKS = 0, 0
     name = requests.get(stringa.format(sys.argv[1]))
     info = requests.get(stringb.format(sys.argv[1]))
-    with open('e.csv', 'w') as w:
+    with open('USER_ID.csv', 'w') as w:
         writer = csv.writer(w)
         EMPLOYEE_NAME = name.json().get("username")
         id = name.json().get('id')
