@@ -5,11 +5,11 @@ TODO list progress
 if __name__ == '__main__':
     import requests
     import sys
+    stringa = 'https://jsonplaceholder.typicode.com/users/{}'
+    stringb = 'https://jsonplaceholder.typicode.com/users/{}/todos' 
     TOTAL_NUMBER_OF_TASKS, NUMBER_OF_DONE_TASKS, new_dict = 0, 0, {}
-    name = requests.get('https://jsonplaceholder.typicode.com/user\
-                        s/{}'.format(sys.argv[1]))
-    info = requests.get('https://jsonplaceholder.typicode.com/users/{}\
-                        /todos'.format(sys.argv[1]))
+    name = requests.get(stringa.format(sys.argv[1]))
+    info = requests.get(stringb.format(sys.argv[1]))
     EMPLOYEE_NAME = name.json().get("name")
     for i in info.json():
         if i.get("completed"):
